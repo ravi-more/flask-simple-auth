@@ -1,0 +1,4 @@
+{% extends 'base.html' %}
+{% block main %}
+<h2>{% if g.user %} Welcome, {{g.user['username']}} {% endif %}</h2>
+{% endblock main %}

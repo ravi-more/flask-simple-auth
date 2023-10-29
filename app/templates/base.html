@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="author" content="Ravi More">
+	<meta name="application-name" content="Flask Simple Auth">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="{{url_for('static',filename='common-style.css')}}">
+	<link rel="stylesheet" href="{{url_for('static',filename='form-style.css')}}">
+	<title>
+		{% if title %}
+		{{title}}
+		{% else %}
+		Flask Simple Auth
+		{% endif %}
+	</title>
+	{% block head %}
+	{% endblock %}
+</head>
+
+
+<body>
+	<header>
+		<nav class="navbar">
+			<div class="navbar-container">
+				<div class="navbar-brand">
+					<a href="/">
+						<h2>Flask Simple Auth</h2>
+					</a>
+				</div>
+				<input style="visibility: hidden;" id="select-menu" type="checkbox">
+				<div class="menu">
+					{% if g.user %}
+					<div class="menu-item">
+						<a href="{{ url_for('dashboard.home') }}">Home </a>
+					</div>
+					<div class="menu-item">
+						<a href="{{ url_for('auth.change_password') }}">Change Password </a>
+					</div>
+					<div class="menu-item">
+						<a href="{{ url_for('auth.logout') }}">Logout</a>
+					</div>
+					{% else %}
+					<div class="menu-item">
+						<a href="{{ url_for('auth.change_password') }}">Login </a>
+					</div>
+					<div class="menu-item">
+						<a href="{{ url_for('auth.register') }}">Register</a>
+					</div>
+					{% endif %}
+				</div>
+
+				<label for="select-menu" class="menu-icon">
+					<div class="menu-icon-line"></div>
+					<div class="menu-icon-line"></div>
+					<div class="menu-icon-line"></div>
+				</label>
+			</div>
+		</nav>
+	</header>
+
+	{% with messages = get_flashed_messages(with_categories=true) %}
+	{% if messages %}
+	{% for category,message in messages %}
+		<section class="flash flash-{{category}}">
+			<div>
+				{{message|safe}}
+			</div>
+		</section>
+	{% endfor %}
+	{% endif %}
+	{% endwith %}
+	<main class="main">
+		{% block main %}
+
+		{% endblock %}
+	</main>
+	<footer class="footer">© 2022. All Rights Reserved.   <a href="#" class="foot-link">Privacy Policy</a></footer>
+</body>
+
+</html>

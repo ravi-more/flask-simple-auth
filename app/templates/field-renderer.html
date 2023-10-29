@@ -1,0 +1,11 @@
+{% macro render_field(field)%}
+<div class="input-field">
+	{{ field.label }}
+	{{ field(class="input")|safe }}
+</div>
+<ul style="justify-content: left ! important;">
+	{% for error in field.errors  %}
+	<li class="form-error text-red">{{error}}</li>
+	{% endfor %}
+</ul>
+{%endmacro%}
