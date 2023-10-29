@@ -1,0 +1,103 @@
+:root {
+	--font-color-secondary: #41a300;
+	--shadow: #818181;
+	--font-color-secondary-hover: #347e03;
+}
+
+.main {
+	padding: 120px 15px;
+}
+
+.wrapper {
+	max-width: 500px;
+	width: 100%;
+	background: #fff;
+	margin: 20px auto;
+	padding: 30px;
+	border-radius: 15px;
+	box-shadow: 1px 1px 50px 2px var(--shadow);
+}
+
+.wrapper .title {
+	font-size: 24px;
+	font-weight: 500;
+	margin-bottom: 25px;
+	color: var(--font-color-secondary);
+	text-transform: uppercase;
+	text-align: center;
+}
+
+.wrapper .form {
+	width: 100%;
+}
+
+.wrapper .form .input-field {
+	margin-bottom: 15px;
+	display: flex;
+	align-items: center;
+}
+
+.wrapper .form .input-field input:focus {
+	border-color: var(--font-color-secondary);
+}
+
+.wrapper .form .input-field label {
+	width: 200px;
+	color: #757575;
+	margin-right: 10px;
+	font-size: 14px;
+}
+
+.wrapper .form .input-field .input {
+	width: 100%;
+	outline: none;
+	border: 1px solid #d5dbd9;
+	font-size: 15px;
+	padding: 8px 10px;
+	border-radius: 3px;
+}
+
+.wrapper .form .input-field .input:focus,
+.wrapper .form .input-field .text:focus,
+
+.wrapper .form .input-field p {
+	font-size: 14px;
+	color: #757575;
+}
+
+.wrapper .form .input-field .btn {
+	width: 100%;
+	padding: 8px 10px;
+	font-size: 15px;
+	border: 0;
+	background: var(--font-color-secondary);
+	color: #fff;
+	cursor: pointer;
+	border-radius: 3px;
+	outline: none;
+}
+
+.wrapper .form .input-field:last-child {
+	margin-bottom: 0px;
+}
+
+.wrapper .form .input-field .btn:hover {
+	background: var(--font-color-secondary-hover);
+}
+
+.wrapper .form .auth-extra{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+@media (max-width: 420px) {
+	.wrapper .form .input-field {
+		flex-direction: column;
+		align-items: flex-start;
+	}
+
+	.wrapper .form .input-field label {
+		margin-bottom: 5px;
+	}
+}

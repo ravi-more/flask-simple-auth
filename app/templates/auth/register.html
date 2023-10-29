@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% from 'field-renderer.html' import render_field %}
+{% block main %}
+<div class="wrapper">
+	<div class="title">Register</div>
+	<form method="post">
+		<div class="form">
+			{{form.hidden_tag()}}
+            {{render_field(form.email)}}
+            {{render_field(form.username)}}
+            {{render_field(form.password)}}
+            {{render_field(form.confirm_password)}}
+			<div class="input-field">
+				{{form.submit(class='btn')}}
+			</div>
+			<div class="auth-extra">
+				<a href="{{url_for('auth.login')}}">Have an account?</a>
+			</div>
+	</form>
+</div>
+
+{% endblock main %}
+
+    
